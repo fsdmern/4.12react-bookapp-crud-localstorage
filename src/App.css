@@ -1,0 +1,16 @@
+/* .App {
+  text-align: center;
+} */
+
+body {
+  background-color: #f1f1f1;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+

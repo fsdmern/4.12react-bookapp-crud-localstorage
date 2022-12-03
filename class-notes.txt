@@ -1,0 +1,17 @@
+React - Crud Book Application with Local Storage
+=================================================
+Objectives:
+Perform CRUD (Create, Read, Update, Delete) operations
+Use React Router for navigation between routes/pages
+Use React Context API to pass data across components
+Use Custom Hook in React
+Use Local Storage to store data and persit even after page refresh
+Manage data stored in local storage using custom Hook
+
+
+
+ 
+
+
+
+
