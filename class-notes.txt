@@ -9,6 +9,10 @@ Use Local Storage to store data and persit even after page refresh
 Manage data stored in local storage using custom Hook
 
 
+Packages:
+react-router-dom, uuid, react-bootstrap, bootstrap, node-sass, loadash
+
+
 
  
 

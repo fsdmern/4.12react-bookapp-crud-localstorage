@@ -1,21 +1,19 @@
 import {NavLink} from 'react-router-dom';
 
-import React from 'react';
-
 const Header = () => {
   return (
-    <Header>
+    <header>
       <h1>Book Management App</h1>
       <hr />
       <div className="links">
-        <NavLink to="/" className="link" activeClassName="active" exact>
+        <NavLink to="/" className="link" exact={true}>
           Book List
         </NavLink>
-        <NavLink to="/add" className="link" activeClassName="active">
+        <NavLink to="/add" className="link">
           Add Book
         </NavLink>
       </div>
-    </Header>
+    </header>
   );
 };
 

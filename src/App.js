@@ -1,11 +1,14 @@
-import './App.css';
-import Header from './components/Header';
+import React from 'react';
+import {BrowserRouter} from 'react-router-dom';
+import './styles.scss';
+import BookRouter from './router/BookRouter';
+
 
 function App() {
   return (
-    <div>
-      <Header />
-    </div>
+    <BrowserRouter>
+        <BookRouter />
+    </BrowserRouter>
   );
 }
 
