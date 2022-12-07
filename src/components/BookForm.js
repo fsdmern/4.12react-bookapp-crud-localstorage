@@ -1,16 +1,19 @@
 import React, {useState} from 'react';
 import {Form, Button} from 'react-bootstrap';
 import {v4 as uuidv4} from 'uuid';
+import { useHistory } from 'react-router-dom';
 
 const BookForm = (props) => {
-  const [book, setBook] = useState({
-    bookname: props.book ? props.book.bookname : '',
-    author: props.author ? props.book.author : '',
-    quantity: props.quantity ? props.book.quantity : '',
-    price: props.price ? props.book.price : '',
-    date: props.date ? props.book.date : '',
+  const [book, setBook] = useState(() => {
+    return {
+      bookname: props.book ? props.book.bookname : '',
+      author: props.author ? props.book.author : '',
+      quantity: props.quantity ? props.book.quantity : '',
+      price: props.price ? props.book.price : '',
+      date: props.date ? props.book.date : '',
+    };
   });
-
+  const history = useHistory();
   const [errorMsg, setErrorMsg] = useState('');
   const {bookname, author, price, quantity} = book;
 
@@ -32,7 +35,8 @@ const BookForm = (props) => {
         quantity,
         date: new Date(),
       };
-      props.handleSubmit(book)
+      props.handleSubmit(book);
+      history.push('/')
     } else {
       errorMsg = 'Please fill out all the fields';
     }
@@ -51,11 +55,11 @@ const BookForm = (props) => {
         }
         break;
       case 'price':
-        if(value === '' || value.match(/^\d{1,}(\.\d{0-2})?$/)) {
-            setBook((prevState) => ({
-              ...prevState,
-              [name]: value,
-            }));
+        if (value === '' || value.match(/^\d{1,}(\.\d{0-2})?$/)) {
+          setBook((prevState) => ({
+            ...prevState,
+            [name]: value,
+          }));
         }
         break;
 
