@@ -1,7 +1,11 @@
 import React from 'react';
 import BookForm from './BookForm';
+import BooksContext from '../context/BooksContext';
+import {useContext} from 'react';
 
-const AddBook = ({history, books, setBooks}) => {
+const AddBook = ({history}) => {
+  const {books, setBooks} = useContext(BooksContext);
+
   const handleSubmit = (book) => {
     setBooks([book, ...books]);
     console.log(book);

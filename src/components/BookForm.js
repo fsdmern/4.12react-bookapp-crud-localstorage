@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import {Form, Button} from 'react-bootstrap';
 import {v4 as uuidv4} from 'uuid';
-import { useHistory } from 'react-router-dom';
+
 
 const BookForm = (props) => {
   const [book, setBook] = useState(() => {
     return {
+      id: props.id ? props.book.id : '',
       bookname: props.book ? props.book.bookname : '',
       author: props.author ? props.book.author : '',
       quantity: props.quantity ? props.book.quantity : '',
@@ -13,14 +14,16 @@ const BookForm = (props) => {
       date: props.date ? props.book.date : '',
     };
   });
-  const history = useHistory();
+
   const [errorMsg, setErrorMsg] = useState('');
   const {bookname, author, price, quantity} = book;
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const values = [bookname, author, price, quantity];
+    const id = uuidv4;
+    const values = [id, bookname, author, price, quantity];
     let errorMsg = '';
+
     const allFieldsFilled = values.every((field) => {
       const value = `${field}`.trim();
       return value !== '' && value !== '0';
@@ -36,7 +39,6 @@ const BookForm = (props) => {
         date: new Date(),
       };
       props.handleSubmit(book);
-      history.push('/')
     } else {
       errorMsg = 'Please fill out all the fields';
     }

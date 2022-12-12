@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Book from './Book';
 import _ from 'lodash';
+import BooksContext from '../context/BooksContext';
 
-const BookList = ({books, setBooks}) => {
+const BookList = () => {
+  const {books, setBooks} = useContext(BooksContext);
+
   const handleRemoveBook = (id) => {
     setBooks(books.filter((book) => book.id !== id));
   };
@@ -13,7 +16,11 @@ const BookList = ({books, setBooks}) => {
       <div className="book-list">
         {!_.isEmpty(books) ? (
           books.map((book) => (
-            <Book key={book.id} {...book} handleRemoveBook={handleRemoveBook} />
+              <Book
+                key={book.id}
+                {...book}
+                handleRemoveBook={handleRemoveBook}
+              />
           ))
         ) : (
           <p className="message">No Books Available. Add Some Books</p>
